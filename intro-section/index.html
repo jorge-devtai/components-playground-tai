@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        jQuery(document).ready(function () {
+            const $tabs = jQuery('.tab');
+            const $images = jQuery('.col-images__image');
+            const $descriptions = jQuery('.tab__description p');
+
+            let currentTab = 0;
+
+            $tabs.on('mouseover', function () {
+                const tabNumber = jQuery(this).attr('id').split('-')[1];
+                const imageId = `image-${tabNumber}`;
+                const descriptionId = `description-${tabNumber}`;
+
+                $tabs.removeClass('active');
+                $images.hide();
+                $descriptions.hide();
+
+                jQuery(this).addClass('active');
+                jQuery('#' + imageId).css('display', 'flex');
+                jQuery('#' + descriptionId).show();
+            });
+
+            function changeTab() {
+                $tabs.eq(currentTab).trigger('mouseover');
+                currentTab = (currentTab + 1) % $tabs.length;
+            }
+
+            setInterval(changeTab, 5000);
+        });
+
+        jQuery(document).ready(function () {
+            const $buttonSeeMore = jQuery('#btn-see-more');
+            const $hiddenText = jQuery('#hidden-text');
+
+            $buttonSeeMore.on('click', function () {
+                $hiddenText.toggleClass('hidden');
+                $buttonSeeMore.text($hiddenText.hasClass('hidden') ? 'Ver más' : 'Ver menos');
+            });
+        });
+    </script>
+
+    <script src="block-description.js" type="module"></script>
+
+    <div id="program-intro">
+        <div id="statement" style="padding-bottom:90px">
+            <h2>Accede a la industria del cine y los videojuegos</h2>
+            <div>
+                <h3>Experimenta el funcionamiento completo de un pipeline profesional de diseño digital</h3>
+                <p>Durante el primer curso explorarás áreas como el diseño gráfico, los motion graphics, el concept art
+                    y el modelado 3D para desarrollar las habilidades que necesitas para crear elementos visuales
+                    impactantes.</p>
+                <p>En el segundo curso adquirirás técnicas especializadas, incluyendo modelado orgánico para personajes
+                    y criaturas, creación de entornos interactivos con Unreal Engine, animación 3D de personajes y
+                    composición digital con Nuke.</p>
+                <span id="hidden-text" class="hidden">
+                    <p>Un programa práctico y progresivo que garantiza el dominio tanto de los fundamentos como de las
+                        herramientas más avanzadas en el flujo de trabajo profesional del diseño digital.</p>
+                </span>
+                <button id="btn-see-more">Ver más</button>
+
+            </div>
+        </div>
+
+        <div class="media"><iframe
+                src="https://iframe.mediadelivery.net/embed/263719/31017f30-1256-4ed7-9692-e26f93736db0?autoplay=false&loop=false&muted=false&preload=false&responsive=true"
+                loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;"
+                allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
+                allowfullscreen="true"></iframe>
+        </div>
+    </div>
+
+
+    <section id="highlights" class="wide-size-sections">
+        <div class="content-size">
+            <header class="content-size__title">
+                <h2>Cuatro razones para estudiar en TAI</h2>
+            </header>
+            <div class="tabs-container">
+                <div class="col-images">
+                    <figure id="image-1" class="col-images__image active">
+                        <img src="https://taiarts.com/wp-content/uploads/2023/08/DICA-desarrolla-tu-marca.jpg" alt="">
+                    </figure>
+                    <figure id="image-2" class="col-images__image">
+                        <img src="https://taiarts.com/wp-content/uploads/2024/06/hl-explora-universos.jpg" alt="">
+                    </figure>
+                    <figure id="image-3" class="col-images__image">
+                        <img src="https://taiarts.com/wp-content/uploads/2024/06/hl-conceptart.jpg" alt="">
+                    </figure>
+                    <figure id="image-4" class="col-images__image">
+                        <img src="https://taiarts.com/wp-content/uploads/2024/01/poster-aavv-campus.jpg" alt="">
+                    </figure>
+                </div>
+
+                <div class="col-tabs">
+                    <div id="tab-1" class="tab active">
+                        <span class="icon-number-container">
+                            <svg class="icon-number" viewBox="0 0 50 50" preserveAspectRatio="xMidYMin meet">
+                                <path
+                                    d="M11.904.304h4.736V46h-5.76V12.144H0V7.792c3.541 0 6.25-.49 8.128-1.472 1.877-.981 3.136-2.987 3.776-6.016ZM27.018 38.704h7.04V46h-7.04v-7.296Z"
+                                    fill="currentColor" />
+                            </svg>
+
+                        </span>
+                        <div class="tab__container">
+                            <figure class="tab__image">
+                                <img src="https://taiarts.com/wp-content/uploads/2023/08/DICA-desarrolla-tu-marca.jpg"
+                                    alt="">
+                            </figure>
+                            <div class="tab__title">
+                                <h3>Trabaja con herramientas profesionales en proyectos reales</h3>
+                            </div>
+                            <div class="tab__description">
+                                <p id="description-1">Aprende a utilizar las herramientas esenciales en arte digital
+                                    como Maya, Unreal
+                                    Engine, After Effects y Nuke. Aplicarás tus conocimientos en proyectos reales y
+                                    descubrirás cómo se
+                                    interconectan las diferentes etapas del pipeline.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-2" class="tab">
+                        <span class="icon-number-container">
+                            <svg viewBox="0 0 50 50" preserveAspectRatio="xMidYMin meet">
+                                <path
+                                    d="M6.912 41.136h23.616V46H0c0-1.9627.2987-3.8187.896-5.568.5973-1.792 1.2587-3.2854 1.984-4.48.768-1.1947 1.856-2.432 3.264-3.712 1.408-1.3227 2.56-2.304 3.456-2.944.9387-.6827 2.24-1.5787 3.904-2.688 2.2613-1.4934 3.8613-2.6027 4.8-3.328.9813-.7254 2.0267-1.6427 3.136-2.752 1.152-1.152 1.92-2.304 2.304-3.456.384-1.152.576-2.496.576-4.032 0-2.432-.768-4.3947-2.304-5.888-1.536-1.4934-3.6907-2.24-6.464-2.24-2.9867 0-5.248.9386-6.784 2.816-1.536 1.8773-2.3253 4.2453-2.368 7.104H.64c0-4.8214 1.3227-8.4907 3.968-11.008C7.2533 1.3066 11.008.048 15.872.048c4.352 0 7.808 1.152 10.368 3.456 2.56 2.2613 3.84 5.4613 3.84 9.6 0 2.3466-.4053 4.4373-1.216 6.272-.8107 1.792-1.6853 3.1573-2.624 4.096-.9387.896-2.3893 2.1333-4.352 3.712l-.96.768c-.9387.7253-2.304 1.728-4.096 3.008-1.792 1.28-3.2427 2.3466-4.352 3.2-1.0667.8106-2.1547 1.856-3.264 3.136-1.1093 1.28-1.8773 2.56-2.304 3.84Zm31.0405-2.432h7.04V46h-7.04v-7.296Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                        <div class="tab__container">
+                            <figure class="tab__image">
+                                <img src="https://taiarts.com/wp-content/uploads/2024/06/hl-explora-universos.jpg"
+                                    alt="">
+                            </figure>
+                            <div class="tab__title">
+                                <h3>Avanza desde los fundamentos técnicos hasta su aplicación creativa</h3>
+                            </div>
+                            <div class="tab__description">
+                                <p id="description-2">Conoce el proceso completo de creación en arte digital, trabajando
+                                    desde la idea
+                                    inicial hasta la entrega final, pasando por las fases de diseño, modelado, animación
+                                    y postproducción.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-3" class="tab">
+                        <span class="icon-number-container">
+                            <svg viewBox="0 0 50 50" preserveAspectRatio="xMidYMin meet">
+                                <path
+                                    d="M2.048 12.208c.128-3.6694 1.3867-6.6134 3.776-8.832C8.256 1.1573 11.5413.048 15.68.048c3.968 0 7.104 1.024 9.408 3.072 2.3467 2.0053 3.52 4.6933 3.52 8.064 0 5.12-2.2827 8.5546-6.848 10.304 6.1013 1.4933 9.152 5.2906 9.152 11.392 0 4.1386-1.3867 7.488-4.16 10.048-2.7733 2.56-6.528 3.84-11.264 3.84-4.5227 0-8.128-1.152-10.816-3.456C2.0267 41.008.4693 37.744 0 33.52v-.64h6.08v.448c.256 2.816 1.216 4.9493 2.88 6.4 1.664 1.4506 3.8827 2.176 6.656 2.176 3.0293 0 5.376-.8747 7.04-2.624 1.664-1.7494 2.496-3.9467 2.496-6.592 0-2.9014-1.0453-5.0134-3.136-6.336-2.0907-1.3227-4.7147-1.984-7.872-1.984h-1.408v-5.44c.64 0 1.5147-.0427 2.624-.128 4.992-.64 7.488-2.88 7.488-6.72 0-2.2187-.6613-3.9467-1.984-5.184-1.28-1.2374-3.072-1.856-5.376-1.856-4.48 0-7.04 2.1546-7.68 6.464 0 .0426-.0213.1493-.064.32v.384H2.048Zm33.601 26.496h7.04V46h-7.04v-7.296Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                        <div class="tab__container">
+                            <figure class="tab__image">
+                                <img src="https://taiarts.com/wp-content/uploads/2024/06/hl-conceptart.jpg" alt="">
+                            </figure>
+                            <div class="tab__title">
+                                <h3>Una formación base que te abre las puertas de la especialización</h3>
+                            </div>
+                            <div class="tab__description">
+                                <p id="description-3">Al finalizar la diplomatura podrás especializarte en áreas como
+                                    modelado, animación,
+                                    diseño de niveles o composición digital con nuestro Master en Modelado 3D con
+                                    Blender, el Master en
+                                    Modelado 3D con Maya o el Master en Animación 3D.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-4" class="tab">
+                        <span class="icon-number-container">
+                            <svg viewBox="0 0 50 50" preserveAspectRatio="xMidYMin meet">
+                                <path
+                                    d="M30.656 29.616v4.8H25.6V46h-5.76V34.416H0v-4.672L20.352.304H25.6v29.312h5.056Zm-24.768 0H19.84V9.712h-.256L5.888 29.616Zm33.657 9.088h7.04V46h-7.04v-7.296Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                        <div class="tab__container">
+                            <figure class="tab__image">
+                                <img src="https://taiarts.com/wp-content/uploads/2024/01/poster-aavv-campus.jpg" alt="">
+                            </figure>
+                            <div class="tab__title">
+                                <h3>Aprendizaje experiencial en una estructura modular</h3>
+                            </div>
+                            <div class="tab__description">
+                                <p id="description-4">El plan de estudios se desarrolla en módulos basados en la
+                                    realización de proyectos
+                                    de dificultad progresiva con el objetivo de desarrollar las competencias y
+                                    habilidades requeridas en el
+                                    mercado laboral.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="teacher-section">
+        <div class="teacher-section__header">
+            <h2 class="teacher-section__title">
+                Fórmate con la mirada de los/as grandes genios de la industria
+            </h2>
+            <p class="teacher-section__description">
+                Aprende junto a referentes de prestigio internacional y descubre todas las claves para conectar tus
+                creaciones
+                con la industria.
+            </p>
+        </div>
+        <div class="cards-container">
+            <!-- item-card-1 -->
+            <div class="teacher-card">
+                <picture class="background-image-container">
+                    <source srcset="https://taiarts.com/wp-content/uploads/2024/11/mobile_AlbertoMartinez.webp"
+                        media="(max-width: 425px)" sizes="(max-width: 425px) 100vw, 100vw" loading="lazy"
+                        type="image/webp" />
+                    <img loading="lazy" class="background-image-container__image"
+                        src="https://taiarts.com/wp-content/uploads/2024/11/desktop_AlbertoMartinez.png"
+                        alt="poster de artista">
+                </picture>
+                <div class="background-layer"></div>
+                <div class="info-container">
+                    <figure class="image-container-avatar">
+                        <img loading="lazy" class="avatar"
+                            src="https://taiarts.com/wp-content/uploads/2024/11/AlbertoMartin.png" alt="avatar-docente">
+                    </figure>
+                    <div class="text-container">
+                        <h3 class="text-container__teacher-card--name">Alberto Martin</h3>
+                        <!-- <h4 class="text-container__teacher-card--rol">Rol del Profesor</h4> -->
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!-- item-card-2 -->
+            <div class="teacher-card">
+                <picture class="background-image-container">
+                    <source srcset="https://taiarts.com/wp-content/uploads/2024/11/mobile_PacoSaez.webp"
+                        media="(max-width: 425px)" sizes="(max-width: 425px) 100vw, 100vw" loading="lazy"
+                        type="image/webp" />
+                    <img loading="lazy" class="background-image-container__image"
+                        src="https://taiarts.com/wp-content/uploads/2024/11/desktop_PacoSaez.png" alt="poster docente">
+                </picture>
+                <div class="background-layer"></div>
+                <div class="info-container">
+                    <figure class="image-container-avatar">
+                        <img loading="lazy" class="avatar"
+                            src="https://taiarts.com/wp-content/uploads/2024/11/PacoSaez.png" alt="avatar-docente">
+                    </figure>
+                    <div class="text-container">
+                        <h3 class="text-container__teacher-card--name">Paco Saez</h3>
+                        <!-- <h4 class="text-container__teacher-card--rol">Rol del Profesor</h4> -->
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!-- item-card-3 -->
+            <div class="teacher-card">
+                <picture class="background-image-container">
+                    <source srcset="https://taiarts.com/wp-content/uploads/2024/11/mobile_RafaZabala.webp"
+                        media="(max-width: 425px)" sizes="(max-width: 425px) 100vw, 100vw" loading="lazy"
+                        type="image/webp" />
+                    <img loading="lazy" class="background-image-container__image"
+                        src="https://taiarts.com/wp-content/uploads/2024/11/desktop_RafaZabala.png"
+                        alt="poster de artista">
+                </picture>
+                <div class="background-layer"></div>
+                <div class="info-container">
+                    <figure class="image-container-avatar">
+                        <img loading="lazy" class="avatar"
+                            src="https://taiarts.com/wp-content/uploads/2024/11/RafaZabala.png" alt="avatar-docente">
+                    </figure>
+                    <div class="text-container">
+                        <h3 class="text-container__teacher-card--name">Rafa Zabala</h3>
+                        <!-- <h4 class="text-container__teacher-card--rol">Rol del Profesor</h4> -->
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!-- item-card-4 -->
+            <div class="teacher-card">
+                <picture class="background-image-container">
+                    <source srcset="https://taiarts.com/wp-content/uploads/2024/11/mobile_DavidBlaya.webp"
+                        media="(max-width: 425px)" sizes="(max-width: 425px) 100vw, 100vw" loading="lazy"
+                        type="image/webp" />
+                    <img loading="lazy" class="background-image-container__image"
+                        src="https://taiarts.com/wp-content/uploads/2024/11/desktop_DavidBlaya.png"
+                        alt="poster de artista">
+                </picture>
+                <div class="background-layer"></div>
+                <div class="info-container">
+                    <figure class="image-container-avatar">
+                        <img loading="lazy" class="avatar"
+                            src="https://taiarts.com/wp-content/uploads/2024/11/DavidBlaya.png" alt="avatar-docente">
+                    </figure>
+                    <div class="text-container">
+                        <h3 class="text-container__teacher-card--name">David Blaya</h3>
+                        <!-- <h4 class="text-container__teacher-card--rol">Rol del Profesor</h4> -->
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!-- item-card-5 -->
+            <div class="teacher-card">
+                <picture class="background-image-container">
+                    <source srcset="https://taiarts.com/wp-content/uploads/2024/11/mobile_DiegoGonzalez.webp"
+                        media="(max-width: 425px)" sizes="(max-width: 425px) 100vw, 100vw" loading="lazy"
+                        type="image/webp" />
+                    <img loading="lazy" class="background-image-container__image"
+                        src="https://taiarts.com/wp-content/uploads/2024/11/desktop_DiegoGonzalez.png"
+                        alt="poster de artista">
+                </picture>
+                <div class="background-layer"></div>
+                <div class="info-container">
+                    <figure class="image-container-avatar">
+                        <img loading="lazy" class="avatar"
+                            src="https://taiarts.com/wp-content/uploads/2024/11/DiegoGonzalez.png" alt="avatar-docente">
+                    </figure>
+                    <div class="text-container">
+                        <h3 class="text-container__teacher-card--name">Diego González</h3>
+                        <!-- <h4 class="text-container__teacher-card--rol">Rol del Profesor</h4> -->
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!-- item-card-6 -->
+            <div class="teacher-card">
+                <picture class="background-image-container">
+                    <source srcset="https://taiarts.com/wp-content/uploads/2024/11/mobile_JoseIvanPerez.webp"
+                        media="(max-width: 425px)" sizes="(max-width: 425px) 100vw, 100vw" loading="lazy"
+                        type="image/webp" />
+                    <img loading="lazy" class="background-image-container__image"
+                        src="https://taiarts.com/wp-content/uploads/2024/11/desktop_Joseivanperez.png"
+                        alt="poster de artista">
+                </picture>
+                <div class="background-layer"></div>
+                <div class="info-container">
+                    <figure class="image-container-avatar">
+                        <img loading="lazy" class="avatar"
+                            src="https://taiarts.com/wp-content/uploads/2024/11/Joseivanperez.png" alt="avatar-docente">
+                    </figure>
+                    <div class="text-container">
+                        <h3 class="text-container__teacher-card--name">Jose Iván Pérez</h3>
+                        <!-- <h4 class="text-container__teacher-card--rol">Rol del Profesor</h4> -->
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!-- item-card-7 -->
+            <div class="teacher-card">
+                <picture class="background-image-container">
+                    <source srcset="https://taiarts.com/wp-content/uploads/2024/11/mobile_JosePanadero.webp"
+                        media="(max-width: 425px)" sizes="(max-width: 425px) 100vw, 100vw" loading="lazy"
+                        type="image/webp" />
+                    <img loading="lazy" class="background-image-container__image"
+                        src="https://taiarts.com/wp-content/uploads/2024/11/desktop_JosePanadero.png"
+                        alt="poster de artista">
+                </picture>
+                <div class="background-layer"></div>
+                <div class="info-container">
+                    <figure class="image-container-avatar">
+                        <img loading="lazy" class="avatar"
+                            src="https://taiarts.com/wp-content/uploads/2024/11/JosePanadero.png" alt="avatar-docente">
+                    </figure>
+                    <div class="text-container">
+                        <h3 class="text-container__teacher-card--name">Jóse Panadero</h3>
+                        <!-- <h4 class="text-container__teacher-card--rol">Rol del Profesor</h4> -->
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <!-- item-card-8 -->
+            <div class="teacher-card">
+                <picture class="background-image-container">
+                    <source srcset="https://taiarts.com/wp-content/uploads/2024/11/mobile_VictorMarin.webp"
+                        media="(max-width: 425px)" sizes="(max-width: 425px) 100vw, 100vw" loading="lazy"
+                        type="image/webp" />
+                    <img loading="lazy" class="background-image-container__image"
+                        src="https://taiarts.com/wp-content/uploads/2024/11/desktop_VictorMarin.png"
+                        alt="poster de artista">
+                </picture>
+                <div class="background-layer"></div>
+                <div class="info-container">
+                    <figure class="image-container-avatar">
+                        <img loading="lazy" class="avatar"
+                            src="https://taiarts.com/wp-content/uploads/2024/11/VictorMarin.png" alt="avatar-docente">
+                    </figure>
+                    <div class="text-container">
+                        <h3 class="text-container__teacher-card--name">Victor Marín</h3>
+                        <!-- <h4 class="text-container__teacher-card--rol">Rol del Profesor</h4> -->
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

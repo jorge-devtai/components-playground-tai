@@ -1,0 +1,113 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+
+
+& h3, h4 {
+    text-transform: uppercase;
+    color: #000;
+    font-weight: normal;
+    text-wrap: balance;
+}
+
+& h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+& h4 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+& p, li {
+    font-size: 1rem;
+    line-height: 1.6;
+
+
+}
+
+& .intro, .benefits, .block, .faqs {
+    margin-bottom: 30px;
+}
+
+& .benefits ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+& .benefits li {
+    margin-bottom: 10px;
+}
+
+& .block-container {
+    background-color: #d12216;
+    padding: 1.8rem 2rem;
+    text-align: center;
+    color: #fff; 
+    margin-bottom: 2rem;
+
+    & h3 {
+     color: #fff;
+     margin-bottom: .5rem;
+     line-height: 1.3;
+    }
+}
+}
+
+/* Estilos para las preguntas frecuentes (FAQs) */
+.faqs details {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+.faqs summary {
+    cursor: pointer;
+    padding: 10px;
+    
+    & h4 {
+        display: inline;
+        font-size: 0.8rem;
+    }
+}
+
+.faqs details[open] summary {
+    border-block-end: 1px solid #000;
+}
+
+.faqs summary:hover {
+    background-color: #e0e0e0;
+}
+
+.faqs p, .faqs ol {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    p, li {
+        font-size: 0.9rem;
+    }
+}

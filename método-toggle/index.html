@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Responsive con Toggle</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            display: flex; /* Para alinear elementos horizontalmente */
+            justify-content: space-between; /* Espacio entre elementos */
+            align-items: center; /* Centrar verticalmente */
+        }
+
+        .logo {
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: none; /* Muestra los elementos del menú en línea */
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background-color: #ff9776;
+        }
+
+        .expanded {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            gap: 0.5rem;
+            top: 6%;
+            left: 0;
+            width: 100vw;
+            padding: 2rem;
+            background-color: #333;
+            box-sizing: border-box;
+
+        }
+
+        .toggle-hamburger {
+            display: block; 
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (min-width: 636px) {
+
+            .nav-links {
+                display: flex;
+                padding-inline-end: 2rem;
+                
+            }
+            .toggle-hamburger {
+                display: none;
+            }
+        
+            
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        
+        <div class="logo">Mi Sitio Web</div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <div class="toggle-hamburger">&#9776;</div> 
+    </nav>
+
+    <script>
+        const toggleButton = document.querySelector('.toggle-hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        toggleButton.addEventListener('click', () => {
+            navLinks.classList.toggle('expanded');
+            const isExpanded = navLinks.classList.contains('expanded');
+            toggleButton.innerHTML = isExpanded ? '&times;' : '&#9776;';
+            toggleButton.setAttribute('aria-label', isExpanded ? 'Cerrar menú' : 'Abrir menú');
+        });
+      
+    </script>
+
+    <section>
+        <h1>Contenido de la página</h1>
+        <p>Este es el contenido principal de tu sitio web. El menú se adaptará a diferentes tamaños de pantalla.</p>
+    </section>
+
+</body>
+</html>
