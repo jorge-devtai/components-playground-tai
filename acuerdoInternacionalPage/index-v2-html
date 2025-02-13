@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escuela de Artes TAI</title>
+  <link rel="stylesheet" href="style-v2.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1>Escuela de Artes TAI</h1>
+      <p>Innovación y Creatividad en el Corazón de Madrid</p>
+      <a href="https://taiarts.com/es/" class="cta-button">Conoce más</a>
+    </div>
+  </header>
+
+  <!-- Sección: Sobre Nosotros -->
+  <section class="about">
+    <div class="container">
+      <h2>Sobre Nosotros</h2>
+      <p>La Escuela de Artes TAI está dedicada a formar a los profesionales creativos del futuro, fomentando la innovación, la interdisciplinariedad y las conexiones con las industrias artísticas y culturales.</p>
+      <p><strong>50 años de experiencia</strong> en formación artística respaldan nuestra trayectoria.</p>
+      <a href="https://taiarts.com/sobre-nosotros/" class="cta-button">Más información</a>
+    </div>
+  </section>
+
+  <!-- Sección: Programas Disponibles -->
+  <section class="programs">
+    <div class="container">
+      <h2>Programas Disponibles</h2>
+      <p>Ofrecemos una amplia variedad de programas de Diplomas, Grados Universitarios y Másteres en áreas como:</p>
+      <ul>
+        <li>Artes Escénicas</li>
+        <li>Cine</li>
+        <li>Comunicación Audiovisual</li>
+        <li>Fotografía</li>
+        <li>Bellas Artes</li>
+        <li>Música</li>
+        <li>Diseño de Moda</li>
+      </ul>
+      <a href="https://taiarts.com/es/estudios/" class="cta-button">Ver programas</a>
+    </div>
+  </section>
+
+  <!-- Sección: Instalaciones -->
+  <section class="facilities">
+    <div class="container">
+      <h2>Instalaciones</h2>
+      <p>Con un total de 10.000 metros cuadrados dedicados a la formación y práctica artística, nuestras instalaciones incluyen estudios de grabación, salas de ensayo, laboratorios de diseño y espacios creativos.</p>
+      <a href="https://taiarts.com/es/instalaciones-y-equipos/instalaciones/" class="cta-button">Conoce nuestras instalaciones</a>
+    </div>
+  </section>
+
+  <!-- Sección: Ubicación -->
+  <section class="location">
+    <div class="container">
+      <h2>Ubicación</h2>
+      <p>Situada en el vibrante centro de Madrid, TAI se beneficia de un entorno cultural rico y diverso, ideal para el desarrollo artístico y profesional.</p>
+    </div>
+  </section>
+
+  <!-- Sección: Alianzas -->
+  <section class="alliances">
+    <div class="container">
+      <h2>¿Por qué establecer una alianza con TAI?</h2>
+      <ul>
+        <li><strong>Red Internacional:</strong> Parte de Galileo Global Education, líder europeo en educación artística.</li>
+        <li><strong>Experiencia Práctica:</strong> Proyectos reales y colaboraciones con empresas.</li>
+        <li><strong>Intercambio Cultural:</strong> Promovemos un entorno multicultural.</li>
+        <li><strong>Conexión con la Industria:</strong> Programas orientados a la empleabilidad y emprendimiento.</li>
+      </ul>
+      <a href="mailto:contacto@taiarts.com" class="cta-button">Contáctenos</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2023 TAI School of the Arts. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
