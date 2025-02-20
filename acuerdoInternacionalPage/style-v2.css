@@ -4,90 +4,358 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-  }
-  
-  .container {
-    width: 80%;
-    margin: 0 auto;
-    max-width: 1200px;
-  }
-  
-  .header {
-    background: url('https://via.placeholder.com/1920x400') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 0;
-  }
-  
-  .header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-  
-  .header p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .cta-button {
+
+
+/**** Areas mosaico ****/
+
+.bg-blanco {
+    background-color: white;
+}
+
+.areas-mosaic-wrapper {
+    background-color: black;
+    color: white;
+    line-height: 1;
+}
+
+#areas-mosaic {
+	font-family: Lausanne, Arial, sans-serif;
+}
+
+.areas5 {
+	font-size: 23px;
+	text-transform: uppercase;
+	padding: 30px 24px 0px;
+}
+
+.areas5::before {
+	content: " ";
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: white;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+#areas-mosaic h2 {
+	font-size: 32px;
+	font-style: normal;
+	padding: 20px;
+}
+
+#areas-mosaic #areas-mosaic-intro {
+   flex-direction: column;
+   align-items: start;
+   justify-content: end;
+}
+
+#areas-mosaic #areas-mosaic-intro a {
     display: inline-block;
-    background-color: #ff6347;
-    color: #fff;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    padding: 10px 25px 8px;
+    font-size: 14px;
+    text-transform: uppercase;
     text-decoration: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cta-button:hover {
-    background-color: #e53935;
-  }
-  
-  section {
-    padding: 50px 0;
+    letter-spacing: 1px;
+    transition: all .25s ease-out;
+}
+
+#areas-mosaic #areas-mosaic-intro a:hover {
+    color: #000;
     background-color: #fff;
-    margin-bottom: 20px;
-  }
-  
-  section h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  section p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-  }
-  
-  section ul {
-    list-style: none;
-    padding-left: 20px;
-  }
-  
-  section ul li {
-    margin-bottom: 10px;
-    position: relative;
-  }
-  
-  section ul li::before {
-    content: "•";
-    color: #ff6347;
-    font-size: 1.5rem;
-    position: absolute;
-    left: -20px;
-    top: -5px;
-  }
-  
-  .footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: #fff;
-  }
+}
+
+#areas-mosaic a.item {
+	display: block;
+	width: 100%;
+	height: 66.66vw;
+	position: relative;
+	border-top: 1px solid white;
+	font-size: 6vw;
+	text-transform: uppercase;
+	background-size: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: inherit;
+	transition: background-size .5s;
+}
+
+#areas-mosaic a.item:hover {
+	background-size: 120%;
+}
+#areas-mosaic a.item span {
+	display: block;
+	position: absolute;
+	bottom: 5vw;
+	left: 14vw;
+	z-index: 9;
+	transition: transform .5s;
+}
+
+#areas-mosaic a.item:hover span {
+	transform: translateX(2vw);
+}
+
+#areas-mosaic a.item span::before {
+	content: " ";
+	display: inline-block;
+	background-image: url(/wp-content/uploads/areas-mosaic/circle-bt.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 6vw;
+	height: 6vw;
+	margin-left: -6vw;
+	transform: translate(-2vw, .75vw);
+	transition: transform .5s;
+}
+
+#areas-mosaic a.item:hover span::before {
+	transform: rotate(180deg) translate(2vw, -.75vw);
+}
+
+#areas-mosaic a.item::after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border: 10px solid black;
+	background:
+		linear-gradient(rgba(0, 0, 0, 0) 60%,
+			rgba(0, 0, 0, 0.5) 80%);
+	}
+
+#areas-mosaic a.item:nth-of-type(1) {
+	background-image: url(/wp-content/uploads/areas-mosaic/artes-escenicas_m.jpg);
+}
+
+#areas-mosaic a.item:nth-of-type(2) {
+	background-image: url(/wp-content/uploads/areas-mosaic/cine-y-series.jpg);
+}
+
+#areas-mosaic a.item:nth-of-type(3) {
+	background-image: url(/wp-content/uploads/areas-mosaic/animacion-y-postproduccion.jpg);
+}
+
+#areas-mosaic a.item:nth-of-type(4) {
+	background-image: url(/wp-content/uploads/2025/01/artes-visuales-inicio-scaled.webp);
+}
+
+#areas-mosaic a.item:nth-of-type(5) {
+	background-image: url(/wp-content/uploads/areas-mosaic/musica-y-sonido.jpg);
+}
+
+#areas-mosaic .extra {
+	display: none;
+}
+
+
+
+/*** T A B L E T ***/
+
+@media (min-width: 600px) {
+
+    #areas-mosaic-wrapper {
+        background-color: black;
+        color: white;
+        line-height: 1;
+    }
+
+    #areas-mosaic {
+        height: 100vw;
+        display: grid;
+        grid-gap: none;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+    }
+
+    .areas5 {
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 2;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;
+        padding-left: 12.8vw;
+        padding-bottom: 26px;
+        display: flex;
+        align-items: end;
+    }
+
+    .areas5::before {
+        margin-bottom: 6.5px;
+    }
+
+    #areas-mosaic #areas-mosaic-intro {
+        grid-column: 4 / span 5;
+        grid-row: 1 / span 2;
+        font-size: 38px;
+        display: flex;
+        border-bottom: 1px solid white;
+    }
+
+    #areas-mosaic a.item {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        font-size: 2vw;
+        border: 1px solid white;
+    }
+
+    #areas-mosaic a.item span {
+        bottom: 3vw;
+        left: 60px;
+        width: 60%;
+    }
+
+    #areas-mosaic a.item span::before {
+        width: 23px;
+        height: 23px;
+        margin-left: -23px;
+        transform: translate(-10px, 3px);
+    }
+
+    #areas-mosaic a.item:hover span::before {
+        width: 23px;
+        height: 23px;
+        margin-left: -23px;
+        transform: rotate(180deg) translate(10px, -3px);
+    }
+
+    #areas-mosaic a.item:nth-of-type(1) {
+        grid-column: 2 / span 2;
+        grid-row: 3 / span 3;
+        background-image: url(/wp-content/uploads/areas-mosaic/artes-escenicas_s.jpg);
+        border-top: none;
+        border-bottom: none;
+    }
+
+    #areas-mosaic a.item:nth-of-type(2) {
+        grid-column: 4 / span 3;
+        grid-row: 3 / span 2;
+        background-image: url(/wp-content/uploads/areas-mosaic/cine-y-series_s.jpg);
+        border-top: none;
+        border-left: none;
+        border-bottom: none;
+    }
+
+    #areas-mosaic a.item:nth-of-type(3) {
+        grid-column: 1 / span 3;
+        grid-row: 6 / span 2;
+        background-image: url(/wp-content/uploads/areas-mosaic/animacion-y-postproduccion_s.jpg);
+        border-left: none;
+    }
+
+    #areas-mosaic a.item:nth-of-type(4) {
+        grid-column: 4 / span 2;
+        grid-row: 5 / span 3;
+        background-image: url(/wp-content/uploads/2025/01/artes-visuales-inicio-scaled.webp);
+        border: 1px solid white;
+        border-left: none;
+    }
+
+    #areas-mosaic a.item:nth-of-type(5) {
+        grid-column: 6 / span 3;
+        grid-row: 5 / span 2;
+        background-image: url(/wp-content/uploads/areas-mosaic/musica-y-sonido_s.jpg);
+        border-top: 1px solid white;
+        border-right: none;
+        border-left: none;
+    }
+
+    #areas-mosaic::after {
+        grid-column: 5;
+        grid-row: 0;
+        content: " ";
+        border-right: 1px solid white;
+    }
+
+}
+
+
+/*** D E S K T O P ***/
+
+@media (min-width: 1200px) {
+
+    #areas-mosaic {
+        height: 1200px;
+        grid-template-columns: 1fr repeat(8, 150px) 1fr;
+        grid-template-rows: repeat(8, 150px);
+    }
+
+    .areas5 {
+        grid-column: 1 / span 4;
+        padding-left: calc(50vw - 448px);
+    }
+
+    #areas-mosaic #areas-mosaic-intro {
+        grid-column: 5 / end;
+    }
+
+    #areas-mosaic h2 {
+        font-size: 54px;
+        padding-right: 200px;
+    }
+
+    #areas-mosaic a.item {
+        font-size: 23px;
+    }
+
+    #areas-mosaic a.item span {
+        bottom: 30px;
+    }
+
+    #areas-mosaic a.item:nth-of-type(1) {
+        grid-column-start: 3;
+        background-image: url(/wp-content/uploads/areas-mosaic/artes-escenicas.jpg);
+    }
+
+    #areas-mosaic a.item:nth-of-type(2) {
+        grid-column-start: 5;
+        background-image: url(/wp-content/uploads/areas-mosaic/cine-y-series.jpg);
+    }
+
+    #areas-mosaic a.item:nth-of-type(3) {
+        grid-column-start: 2;
+        border-left: 1px solid white;
+        background-image: url(/wp-content/uploads/areas-mosaic/animacion-y-postproduccion.jpg);
+    }
+
+    #areas-mosaic a.item:nth-of-type(4) {
+        grid-column-start: 5;
+        background-image: url(/wp-content/uploads/2025/01/artes-visuales-inicio-scaled.webp);
+    }
+
+    #areas-mosaic a.item:nth-of-type(5) {
+        grid-column-start: 7;
+        border-right: 1px solid white;
+        background-image: url(/wp-content/uploads/areas-mosaic/musica-y-sonido.jpg);
+    }
+
+    #areas-mosaic::after {
+        grid-column-start: 6;
+    }
+
+    #areas-mosaic::before {
+        grid-column: 1;
+        grid-row: 6 / span 2;
+        content: " ";
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+
+    #areas-mosaic .extra {
+        display: block;
+        grid-column: 10;
+        grid-row: 5 / span 2;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+
+}
 
