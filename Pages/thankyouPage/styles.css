@@ -1,0 +1,205 @@
+/* Reset básico */
+@layer reset {
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* interpolate-size: allow-keywords; */
+      
+    }
+    .header-breadcrumbs-wrapper {
+        display: none;
+      }
+  }
+  
+  @layer base {
+    .layout {
+      display: grid;
+      container-type: inline-size;
+      container-name: layout;
+      padding-block: 2rem;
+      align-content: center;
+    }
+  
+    .column {
+      box-sizing: border-box;
+      padding-inline: clamp(1rem, 0.714rem + 1.43vw, 2rem);
+    }
+  
+    .dark-container {
+      background-color: black;
+      color: white;
+    }
+  
+    .red-container {
+      background-color: #d12216;
+      color: white;
+    }
+
+    .light-container {
+      background-color: white;
+      color: black;
+    }
+  
+    .container-wrapper__contentSize--oneColumn {
+      display: grid;
+      max-inline-size: 1080px;
+      inline-size: 100%;
+      margin: auto;
+      padding-inline: clamp(1rem, 0.714rem + 1.43vw, 2rem);
+      gap: 1.5rem;
+    }
+  
+    .separator-line {
+      visibility: visible !important;
+      margin: 1rem 0;
+      max-inline-size: 90%;
+      background-color: currentColor;
+      height: 1px;
+      padding: 0 !important;
+    }
+  
+    a {
+      color: inherit;
+    }
+    .logo-tai {
+        margin: 0 auto;
+        max-inline-size: 300px;
+        inline-size: 9rem;
+    }
+  }
+  
+  @layer custom_images {
+    .image-container--horizontal {
+      display: flex;
+  
+      & img {
+        max-inline-size: 100%;
+        flex: 1;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
+      }
+    }
+  
+    .image-container--vertical {
+      display: flex;
+  
+      & img {
+        max-inline-size: 100%;
+        flex: 1;
+        object-fit: cover;
+      }
+    }
+  }
+  
+  @layer titles {
+    .title {
+      font-size: x-large;
+      font-weight: normal;
+      text-wrap: balance;
+      line-height: 1.2;
+      color: inherit;
+      /* Hereda el color del contexto */
+    }
+  
+    .title-header {
+      font-size: xx-large;
+      max-width: 1080px;
+      font-weight: normal;
+      text-wrap: balance;
+      line-height: 1.1;
+    }
+  
+    .subtitle {
+      font-size: larger;
+      margin-block-end: 1rem;
+      text-wrap: pretty;
+      font-weight: normal;
+      line-height: 1.3;
+      color: inherit;
+    }
+  
+    .text {
+      font-size: medium;
+      line-height: 1.3;
+      text-wrap: pretty;
+      margin-block: 0rem 1rem;
+      color: inherit;
+    }
+  }
+  
+  @layer buttons {
+    .cta-button {
+      margin-block-start: 1rem;
+      display: block;
+      text-align: center;
+      width: fit-content;
+      border-radius: 25px;
+      letter-spacing: 1px;
+      font-size: medium;
+      font-weight: 400;
+      text-transform: uppercase;
+      background-color: #d12216;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: all .3s ease;
+      border: 1px solid #d12216;
+  
+      &:hover {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+        transform: scale(1.1);
+      }
+    }
+  }
+  
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    margin-block: 3rem;
+  }
+
+  :where(.info-container p) {
+      text-align: center;
+      max-inline-size: 65ch;
+      margin: 0;
+  }
+
+  :is(.info-container h1 ) {
+     margin-block: 1rem;
+  }
+    
+  @container layout (width > 768px) {
+  
+    .container-wrapper__wideSize {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+  }
+  
+  @container layout (width > 480px) {
+  
+    .container-wrapper__contentSize {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      max-inline-size: 1080px;
+      margin: auto;
+  
+    }
+  
+  }
+  
+  @container layout (width < 480px) {
+  
+    .container-wrapper__contentSize {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+  }
