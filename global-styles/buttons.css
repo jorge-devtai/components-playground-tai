@@ -1,0 +1,25 @@
+@layer buttons {
+    .primary-button  {
+      display: block;
+      text-align: center;
+      min-inline-size: fit-content;
+      border-radius: 50px;
+      letter-spacing: 1px;
+      font-size: medium;
+      font-weight: 400;
+      text-transform: uppercase;
+      background-color: #d12216;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      transition: all .3s ease;
+      border: 1px solid #d12216;
+  
+      &:hover {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+        transform: scale(1.1);
+      }
+    }
+  }

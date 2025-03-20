@@ -1,0 +1,42 @@
+@layer card-hero {
+
+    @container layout (width > 768px) {
+        .card-hero {
+            display: flex;
+            inline-size: fit-content;
+            max-inline-size: 65dvw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            padding: clamp(1rem, 0.571rem + 2.14vw, 2.5rem);
+          }
+    }  
+
+    @container layout (width > 420px) {
+        .card-hero {
+            display: flex;
+            inline-size: fit-content;
+            max-inline-size: 75dvw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            padding: clamp(1rem, 0.571rem + 2.14vw, 2.5rem);
+          }
+    }
+
+    @container layout (width < 420px) {
+        .card-hero {
+            display: flex;
+            inline-size: fit-content;
+            max-inline-size: 100dvw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem;
+          }
+    }  
+ 
+}

@@ -1,0 +1,5 @@
+@import url('../global-styles/reset.css') layer(reset);
+@import url('../global-styles/base.css') layer(base);
+@import url('../global-styles/card-hero.css') layer(card-hero);
+@import url('../global-styles/titles.css') layer(title);
+@import url('../global-styles/buttons.css') layer(buttons);

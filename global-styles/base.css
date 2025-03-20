@@ -1,0 +1,109 @@
+@layer base {
+    .layout {
+      display: grid;
+      container-type: inline-size;
+      container-name: layout;
+      padding-block: 2rem;
+      align-content: center;
+    }
+  
+    .column {
+      box-sizing: border-box;
+      padding-inline: clamp(1rem, 0.714rem + 1.43vw, 2rem);
+    }
+
+    .row-hl {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      align-items: center;
+      inline-size: 100%;
+      gap: 1.5rem;
+      background-color: orange;
+
+    }
+
+    .dark-container {
+      background-color: black;
+      color: white;
+    }
+  
+    .red-container {
+      background-color: #d12216;
+      color: white;
+    }
+
+    .light-container {
+      background-color: white;
+      color: black;
+    }
+  
+    .container-wrapper__contentSize--oneColumn {
+      display: grid;
+      max-inline-size: 1080px;
+      inline-size: 100%;
+      margin: auto;
+      padding-inline: clamp(1rem, 0.714rem + 1.43vw, 2rem);
+      gap: 1.5rem;
+    }
+  
+    .separator-line {
+      visibility: visible !important;
+      margin: 1rem 0;
+      max-inline-size: 90%;
+      background-color: currentColor;
+      height: 1px;
+      padding: 0 !important;
+    }
+  
+    a {
+      color: inherit;
+    }
+    .logo-tai {
+        margin: 0 auto;
+        max-inline-size: 300px;
+        inline-size: 9rem;
+    }
+  }
+
+
+   
+  @container layout (width > 768px) {
+  
+    .container-wrapper__wideSize {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .info-container {
+        display: flex;
+        inline-size: fit-content;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+        padding-inline: clamp(1rem, 0.571rem + 2.14vw, 2.5rem);
+      }
+    
+
+  }
+  
+  @container layout (width > 480px) {
+  
+    .container-wrapper__contentSize {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      max-inline-size: 1080px;
+      margin: auto;
+  
+    }
+  
+  }
+  
+  @container layout (width < 480px) {
+  
+    .container-wrapper__contentSize {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+  }

@@ -1,0 +1,36 @@
+@layer titles {
+    .title {
+      font-size: x-large;
+      font-weight: normal;
+      text-wrap: balance;
+      line-height: 1.2;
+      color: inherit;
+      /* Hereda el color del contexto */
+    }
+  
+    .title-header {
+      font-size: xx-large;
+      max-width: 1080px;
+      font-weight: normal;
+      text-wrap: balance;
+      line-height: 1.1;
+      color: inherit;
+    }
+  
+    .subtitle {
+      font-size: larger;
+      margin-block-end: 1rem;
+      text-wrap: pretty;
+      font-weight: normal;
+      line-height: 1.3;
+      color: inherit;
+    }
+  
+    .text {
+      font-size: medium;
+      line-height: 1.3;
+      text-wrap: pretty;
+      margin-block: 0rem 1rem;
+      color: inherit;
+    }
+  }
