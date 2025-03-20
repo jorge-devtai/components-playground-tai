@@ -65,7 +65,7 @@
     }
     .logo-tai {
         margin: 0 auto;
-        max-inline-size: 300px;
+        max-inline-size: 200px;
         inline-size: 9rem;
     }
   }
@@ -162,7 +162,7 @@
     justify-content: center;
     align-items: center;
     gap: .5rem;
-    margin-block: 3rem;
+    margin-block: 2rem;
   }
 
   :where(.info-container p) {
