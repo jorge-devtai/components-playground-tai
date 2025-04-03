@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="block-text">
+        <p class="text-md">Premiamos tu talento y creatividad</p>
+        <span style="font-weight: 400;">En TAI apoyamos y potenciamos perfiles artísticos con altas capacidades creativas y valores relevantes como el compromiso, la implicación y la proactividad fuera y dentro de las aulas.</span>
+      
+        <span style="font-weight: 400;">La capacidad diferencial de los y las estudiantes para abordar el aprendizaje de las distintas disciplinas artísticas, así como la colaboración y creación multidisciplinar, son algunos de los ejes característicos de las Becas al Talento.</span>
+      
+        <span style="font-weight: 400;">Con una duración de un año académico, estas becas pueden ser renovadas tras la postulación del/la estudiante con la consiguiente evaluación y reconocimiento del claustro.</span>
+      
+      
+        <section class="steps-section">
+            <div class="steps-section__title">
+                <h2>Abierta Convocatoria Curso 2024/2025</h2>
+                <h3 style="margin-block-start: 1rem;">¿Cómo participar en las Becas Talento?</h3>
+            </div>
+            <div class="steps-section__wrapper">
+                <!-- Paso 1 -->
+                <div class="card-steps">
+                    <div class="step-img">
+                        <img src="https://taiarts.com/wp-content/uploads/2025/03/pexels-ekaterina-bolovtsova-5393569-1-scaled.webp" alt="imagen 1" />
+                    </div>
+                    <div class="step-description">
+                        <h4>1. Conoce las bases</h4>
+                        <ul class="description-text">
+                            <li>Convocatoria abierta entre el 1 y el 21 de abril</li>
+                            <li><a style="color:inherit; text-decoration:underline;" href="/wp-content/uploads/2025/03/ESP-BASES-BECAS-TALENTO_.pdf"
+                                target="_blank" rel="noopener noreferrer">Descarga las bases de las becas (Español)</a> </li>
+                            <li><a style="color:inherit; text-decoration:underline;"
+                                href="/wp-content/uploads/2025/03/ESP-BASES-BECAS-TALENTO.pdf" target="_blank"
+                                rel="noopener noreferrer">Download the scholarship bases (English)</a></li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <!-- Paso 2 -->
+                <div class="card-steps">
+                    <div class="step-img">
+                        <img src="https://taiarts.com/wp-content/uploads/2025/01/pexels-ron-lach-8100067-scaled.webp" alt="imagen 2" />
+                    </div>
+                    <div class="step-description">
+                        <h4>2. Prepara la documentación y rellena tu solicitud</h4>
+                        <ul class="description-text">
+                            <li><a style="color:inherit; text-decoration:underline;" href="/wp-content/uploads/2025/03/ESP-FORMULARIO-BECAS-TALENTO_.pdf"
+                                target="_blank" rel="noopener noreferrer">Descarga el formulario de solicitud (Español)</a> </li>
+                            <li><a style="color:inherit; text-decoration:underline;"
+                                href="/wp-content/uploads/2025/03/INGLES-FORMULARIO-BECAS-TALENTO.pdf" target="_blank"
+                                rel="noopener noreferrer">Download the scholarship application form (English)</a></li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <!-- Paso 3 -->
+                <div class="card-steps">
+                    <div class="step-img">
+                        <img src="https://taiarts.com/wp-content/uploads/2025/02/pexels-karolina-grabowska-7588014-scaled.webp" alt="imagen 3" />
+                    </div>
+                    <div class="step-description">
+                        <h4>3. Envía tu solicitud</h4>
+                        <ul class="description-text">
+                            <li>Haz click en el botón, completa los datos requeridos y sube tu documentación.</li>
+                            <li>Acepta las bases de la convocatoria y envía tu solicitud.</li>
+                        </ul>
+                        <button class="cta_button" id="open-modal" style="margin-block-start:10px">Aplicar a las becas talento</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Modal -->
+        <dialog id="modal-form">
+            <div class="form-layout">
+                <div class="info-form">
+                    <h2 style="text-align:center;">Participa en Becas Talento</h2>
+                    <p style="text-align:center;">Rellena todos los datos del siguiente formulario para participar</p>
+                </div>
+                <div id="form-container">
+                    <!-- Aquí se cargará el formulario dinámicamente -->
+                    <div id="loading-spinner" style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const modal = document.getElementById('modal-form');
+                const openModalButton = document.getElementById('open-modal');
+                const formContainer = document.getElementById('form-container');
+                const loadingSpinner = document.getElementById('loading-spinner');
+            
+                // Abrir el modal al hacer clic en el botón
+                openModalButton.addEventListener('click', () => {
+                    // Mostrar el spinner mientras se carga el formulario
+                    loadingSpinner.style.display = 'flex';
+            
+                    // Verificar si el formulario ya está cargado
+                    if (!formContainer.querySelector('.loaded-form')) {
+                        // Simular la carga del formulario (reemplaza esto con la lógica real)
+                        setTimeout(() => {
+                            // Aquí insertamos el shortcode del formulario
+                            formContainer.innerHTML = `
+                                <div class="loaded-form">
+                                    [formulario_tai id="267"]
+                                </div>
+                            `;
+                            loadingSpinner.style.display = 'none'; // Ocultar el spinner
+                        }, 1000); // Simula un retraso de 1 segundo (ajusta según sea necesario)
+                    } else {
+                        loadingSpinner.style.display = 'none'; // Ocultar el spinner si ya está cargado
+                    }
+            
+                    // Abrir el modal
+                    modal.showModal();
+                });
+            
+                // Cerrar el modal al hacer clic fuera de él
+                modal.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        modal.close();
+                    }
+                });
+            });
+            </script>
+</body>
+</html>
+
