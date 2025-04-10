@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Open Days</title>
+</head>
+
+<body>
+    <style>
+        /* Estilos para los íconos */
+        .wrapper__icon-text-container {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+        
+        .icon-text-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    
+        .icon {
+            display: inline-block;
+            width: 1.5rem; /* Ajusta el tamaño deseado */
+            height: 1.5rem; /* Mantén la proporción */
+            flex-shrink: 0; /* Evita que el ícono se reduzca demasiado */
+        }
+    
+        .icon svg {
+            width: 100%; /* Escala el SVG para llenar el contenedor */
+            height: 100%;
+        }
+    
+        
+    </style>
+
+    <!-- Carga de dependencias -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="module">
+        // Importa Preact y htm desde ESM.sh
+        import { h, render } from 'https://esm.sh/preact';
+        import htm from 'https://esm.sh/htm';
+
+        // Inicializa htm con Preact
+        const html = htm.bind(h);
+
+    // Componente IntroSection
+    function IntroSection(props) {
+        return html`
+            <section class="layout light-container">
+                <div class="container-wrapper__contentSize">
+                    <div class="column">
+                        <h2 class="title-header">${props.title}</h2>
+                        <hr class="separator-line" />
+                    </div>
+                    <div class="column">
+                        <ul class="list">
+                            ${props.items?.map(
+                                (item, index) => html`<li class="list-item--dark" key=${index}>${item}</li>`
+                            )}
+                        </ul>
+                    </div>   
+                </div>
+            </section>
+        `;
+    }
+
+    // 〰〰〰〰〰〰〰 D A T O S  D E L  C O M P O N E N T E 〰〰〰〰〰〰〰
+
+     const introData = {
+                title: "Vive un día como estudiante: Descubre tu futuro en la jornada de puertas abiertas de TAI",
+                description: "",
+                items: [
+                    "Conocerás nuestros grados oficiales en Cine, Artes Escénicas, Música o Artes Visuales.",
+                    "Podrás charlar y resolver todo tipo de dudas con quienes mejor conocen la escuela: estudiantes, antiguos/as alumnos/as y docentes.",
+                    "Visita la escuela y sus instalaciones, un espacio dedicado 100% al arte.",
+                    "Participarás en talleres artísticos y vivirás una verdadera experiencia de inmersión en la metodología TAI.",
+                    "Recibirás una asesoría personalizada sobre los estudios que te interesan, opciones de empleabilidad, becas y financiación.",
+                    "Podrás realizar la entrevista de admisión este mismo día y dar el primer paso hacia tu futuro como artista.",
+                ],
+                callToAction: "",
+            };
+
+
+      // Componente NextOpenDaysSection
+      function NextOpenDaysSection({ cards, icons }) {
+        return html`
+            <article class="layout dark-container">
+                <div class="container-wrapper__contentSize--oneColumn">
+                    <div class="container-wrapper__cards">
+                        ${cards?.map(
+                            (card, index) => html`
+                                <${CardOpenDay}
+                                    day=${card.day}
+                                    time=${card.time}
+                                    location=${card.location}
+                                    link=${card.link}
+                                    icons=${icons}
+                                    dataSelect=${card.dataSelect} 
+                                    key=${index}
+                                />
+                            `
+                        )}
+                    </div>
+                </div>
+            </article>
+        `;
+    }
+
+    // Componente CardOpenDay
+    function CardOpenDay({ day, time, location, link, icons, dataSelect }) {
+        return html`   
+            <div class="card-open-day layout">
+                <h3 class="subtitle"> Open Day ${day} 2025</h3>
+                <div class="container-wrapper__info-cards">
+                    <div class="wrapper__icon-text-container">
+                        <div class="icon-text-container">
+                            <span class="icon" dangerouslySetInnerHTML=${{ __html: icons['icon-time'] }}></span>
+                            <p class="text">${time}</p>
+                        </div>
+                        <div class="icon-text-container">
+                            <span class="icon" dangerouslySetInnerHTML=${{ __html: icons['icon-location'] }}></span>
+                            <p class="text">${location}</p>
+                        </div>
+                      </div>
+                    <div>
+                        <a href=${link} class="cta-button" style="margin:auto" data-select=${dataSelect}>Inscríbete</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Componente Sumérgete en la experiencia
+    function ExperienceSection(props) {
+        return html`
+              <section class="layout light-container">
+                <div class="container-wrapper__contentSize--oneColumn">
+                   
+                    <div class="container-wrapper__contentSize" style="margin:0; padding-block:1.5rem;">
+                        <div class="column" style="padding-inline:0;">                        
+                            <${ProgramSection} ...${props.programData} />                    
+                        </div>
+                        <div class="column" style="padding-inline:0;">
+                           <div style="display:flex; block-size: 26rem; max-block-size: 29rem;">
+                                <iframe    
+                                    width="100%" height="100%" 
+                                    src=${props.video}  
+                                    style="flex-grow:1; object-fit:cover; border:0; "
+                                    allow="autoplay;">
+                                </iframe>
+                            </div>   
+                        </div>   
+                    </div>
+                </div>
+            </section>
+        `;
+    }
+
+   // Componente Programas de jornadas de puertas abiertas
+    function ProgramSection(props) {
+        return html`
+            <section class="layout light-container" style="padding-block:0">
+                <div class="container-wrapper__contentSize--oneColumn" style="padding-inline:0;">
+                    <div>
+                        <h2 class="title-header" style="max-inline-size: 50ch; margin-block-end:1.5rem;">${props.title}</h2>
+                        <h3 class="title">${props.subtitle}</h3>
+                    </div>
+                    <div>
+                        ${props.activity?.map(
+                            (activity, index) => html`
+                                <div style="display: flex; align-items: center;gap: 2rem; padding-block:.5rem" key=${index}> 
+                                    <p class="text"><strong>${activity.time}</strong></p>
+                                    <p style="max-inline-size:50%" class="text">${activity.description}</p>
+                                </div>
+                            `
+                        )}
+                    </div>   
+                </div>
+            </section>
+        `;
+    }
+
+
+    // Componente Comienza tu experiencia TAI
+    function StartYourExperience(props) {
+      return html`
+            <section class="layout light-container">
+                <div class="container-wrapper__contentSize--oneColumn">
+                    <div>
+                        <h2 class="title-header" style="margin: auto; text-align:center; max-inline-size: 45ch">${props.title}</h2>
+                    </div>
+                    <div style="display:flex; block-size:clamp(16rem, 12.286rem + 18.57vw, 29rem);">
+                        <iframe    
+                            width="100%" height="100%" 
+                            src=${props.video}  
+                            style="flex-grow:1; object-fit:cover; border:0;"
+                           allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true">
+                        </iframe>
+                    </div>   
+                </div>
+            </section>
+    `;
+    }
+
+    // Componente Banner de Call to Action
+    function BannerCTA(props) {
+      return html`
+          <section class="layout dark-container">
+              <div class="container-wrapper__contentSize--oneColumn">
+                  <div>
+                      <h2 class="title-header" style="text-align:center;">${props.title}</h2>
+                  </div>
+                  <div style="margin-block: 2rem;">
+                     <a href=${props.link} class="cta-button" style="margin:auto">${props.callToAction}</a>
+                  </div>   
+              </div>
+          </section>
+      `;
+    }
+
+
+     // Componente Formulario
+     function FormSection(props) {
+    const formShortcode = {
+        __html: '[formulario_tai_evento id="258" nombre="Open Day Presencial" tipo="1" opciones=" Grados Oficiales 26 de abril de 2025 " entrevista="1"]'
+    };
+    
+    return html`
+        <section id="form" class="layout pearl-white-container">
+            <div class="container-wrapper__contentSize--oneColumn">
+                <div style="margin: auto;">
+                    <h2 class="title-header" style="text-align:center;">${props.title}</h2>
+                    <p class="subtitle" style="text-align:center; padding-block: 2rem;">${props.description}</p>
+                </div>
+                <div dangerouslySetInnerHTML=${formShortcode}></div>   
+            </div>
+        </section>
+    `;
+}
+
+
+        // D A T O S  D E  L O S  C O M P O N E N T E S
+
+        $(document).ready(function () {
+
+            const introData = {
+                title: "Vive un día como estudiante: Descubre tu futuro en la jornada de puertas abiertas de TAI",
+                description: "",
+                items: [
+                    "Conocerás nuestros grados oficiales en Cine, Artes Escénicas, Música o Artes Visuales.",
+                    "Podrás charlar y resolver todo tipo de dudas con quienes mejor conocen la escuela: estudiantes, antiguos/as alumnos/as y docentes.",
+                    "Visita la escuela y sus instalaciones, un espacio dedicado 100% al arte.",
+                    "Participarás en talleres artísticos y vivirás una verdadera experiencia de inmersión en la metodología TAI.",
+                    "Recibirás una asesoría personalizada sobre los estudios que te interesan, opciones de empleabilidad, becas y financiación.",
+                    "Podrás realizar la entrevista de admisión este mismo día y dar el primer paso hacia tu futuro como artista.",
+                ],
+                callToAction: "",
+            };
+
+            const OpenDayData = {
+        cards: [
+            {
+                day: "Sábado, 26 de Abril",
+                time: "10:30 AM - 2:30 PM",
+                location: "Calle Recoletos, 22, Madrid",
+                link: "#form",
+                dataSelect: "Grados Oficiales 26 de abril de 2025",            
+            },
+            
+        ],
+
+        icons: {
+            "icon-time": `<svg fill="none" viewBox="0 0 24 24"><mask id="a" style="mask-type:alpha" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#a)"><path fill="currentColor" d="M12 21.5c-1.314 0-2.55-.25-3.705-.748a9.595 9.595 0 0 1-3.016-2.03 9.59 9.59 0 0 1-2.03-3.016 9.246 9.246 0 0 1-.749-3.704c0-1.314.25-2.55.748-3.706a9.596 9.596 0 0 1 2.03-3.016 9.594 9.594 0 0 1 3.016-2.032 9.246 9.246 0 0 1 3.704-.748c1.314 0 2.55.25 3.706.748a9.593 9.593 0 0 1 3.017 2.03 9.596 9.596 0 0 1 2.03 3.017A9.25 9.25 0 0 1 21.5 12c0 .45-.028.892-.085 1.325a8.242 8.242 0 0 1-.269 1.275 2.895 2.895 0 0 0-.615-.487 2.363 2.363 0 0 0-.748-.284 6.62 6.62 0 0 0 .165-.897A8.19 8.19 0 0 0 20 12c0-2.233-.775-4.125-2.325-5.675C16.125 4.775 14.233 4 12 4c-2.233 0-4.125.775-5.675 2.325C4.775 7.875 4 9.767 4 12c0 2.233.775 4.125 2.325 5.675C7.875 19.225 9.767 20 12 20c.876 0 1.709-.132 2.5-.395a8.158 8.158 0 0 0 2.18-1.107c.156.206.338.392.546.558.208.165.434.296.678.394a9.555 9.555 0 0 1-2.713 1.509A9.301 9.301 0 0 1 12 21.5zm7.106-3.75a.967.967 0 0 1-.71-.29.965.965 0 0 1-.29-.71c0-.28.096-.516.29-.71a.964.964 0 0 1 .71-.29c.28 0 .516.097.71.29.193.193.29.43.29.71 0 .28-.097.516-.29.71a.964.964 0 0 1-.71.29zm-3.633-1.223l-4.223-4.223V7h1.5v4.696l3.777 3.777-1.054 1.054z"/></g></svg>`,
+
+            "icon-location": `<svg fill="none" viewBox="0 0 24 24"><mask id="a" width="24" height="24" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#D9D9D9" d="M0 0h24v24H0z"/></mask><g mask="url(#a)"><path fill="#fff" d="M12.002 11.865c.497 0 .923-.177 1.276-.531.353-.355.53-.78.53-1.278 0-.497-.177-.923-.532-1.276a1.746 1.746 0 0 0-1.278-.53c-.497 0-.923.177-1.276.531-.353.355-.53.78-.53 1.278s.177.923.532 1.277c.354.353.78.53 1.278.53zM12 19.514c1.956-1.752 3.453-3.432 4.491-5.04 1.038-1.608 1.557-3.017 1.557-4.226 0-1.823-.58-3.322-1.737-4.496C15.152 4.578 13.715 3.991 12 3.991c-1.715 0-3.152.587-4.31 1.761-1.159 1.174-1.738 2.673-1.738 4.496 0 1.209.519 2.618 1.557 4.226 1.038 1.608 2.535 3.288 4.491 5.04zm0 1.995c-2.517-2.18-4.404-4.21-5.662-6.088-1.257-1.878-1.886-3.602-1.886-5.173 0-2.308.746-4.176 2.24-5.605C8.183 3.214 9.953 2.5 12 2.5s3.816.714 5.309 2.143c1.493 1.43 2.239 3.297 2.239 5.605 0 1.57-.629 3.295-1.886 5.173C16.404 17.3 14.517 19.33 12 21.51z"/></g></svg>`,
+        },
+    };
+
+
+
+    const experienceData = {
+                title: "Sumérgete en la experiencia de nuestras jornadas de puertas abiertas",
+                description: "",
+                video: "https://iframe.mediadelivery.net/embed/263719/bd597034-1a59-4fe4-8c14-e714838be833?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+                callToAction: "",
+            };  
+
+            const programData = {
+                title: "Sumérgete en la experiencia de nuestras jornadas de puertas abiertas",  
+                subtitle: "Programa del evento:",
+                description: "",
+                activity: [
+                    {
+                        time: "10:30h - 11:20h",
+                        description: "Talleres/Workshop",
+                    },
+                    {
+                        time: "11:30h - 12:45h",
+                        description: "Sesión informativa",
+                    },
+                    {
+                        time: "12:45h - 13:45h",
+                        description: "Entrevistas (previa solicitud al evento)",
+                    },
+                    {
+                        time: "12:45h - 13:30h",
+                        description: "Visita las instalaciones",
+                    },
+                    {
+                        time: "13:30h - 14:30h",
+                        description: "Networking",
+                    },
+                ],
+            };
+
+            const startYourExperienceData = {
+                title: "Comienza tu experiencia TAI",
+                description: "",
+                video: "https://iframe.mediadelivery.net/embed/263719/e4b55242-3c51-4206-8ab6-8695756049c3?autoplay=true&loop=true&muted=true&preload=true&responsive=true",
+                callToAction: "",
+            }; 
+
+            const bannerCtaData = {
+                title: "¿Listo/a para dar el primer paso hacia tu futuro? Descúbrelo en nuestras jornadas de puertas abiertas",
+                description: "",
+                link: "#form",
+                callToAction: "Inscríbete",
+            };
+
+            const FormData = {
+                title: "Apúntate a nuestros próximos Open Days de Grados Oficiales 26 de abril 2025 en Madrid",
+                description: "Ven a conocernos y descubre las opciones que te da estudiar en el mayor campus de las artes en Madrid.",
+            }; 
+
+            
+
+            render(
+                html`
+        <${IntroSection} ...${introData} />
+        <${NextOpenDaysSection}  ...${OpenDayData} />
+        <${ExperienceSection} ...${experienceData} programData=${programData}/>
+        <${FormSection} ...${FormData} />
+        <${StartYourExperience} ...${startYourExperienceData} />
+        <${BannerCTA} ...${bannerCtaData} />
+        
+      `,
+                document.getElementById("preact-root")
+            );
+        });
+    </script>
+
+    <!-- Contenedor donde se renderizará el contenido -->
+    <div id="preact-root"></div>
+</body>
+
+</html>
+
+
+
+

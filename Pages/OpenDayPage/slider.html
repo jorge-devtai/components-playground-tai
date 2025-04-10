@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="slider-styel.css">
+</head>
+<body>
+  <script type="module" defer>
+        // Importa Preact y htm desde ESM.sh
+        import { h, render } from 'https://esm.sh/preact';
+        import htm from 'https://esm.sh/htm';
+    
+        // Inicializa htm con Preact
+        const html = htm.bind(h);
+    
+        function slider(props) {
+            return html`
+                <div class="layout-slider">
+                    <h1 class="title">${props.title}</h1>
+                    <h3 class="subtitle">${props.subtitle}</h3>
+                    <a class="cta-button " href="#formulario">${props.callToAction}</a>
+                </div>
+            `           
+        }
+
+        // 〰〰〰〰〰〰〰 D A T O S  D E L  C O M P O N E N T E 〰〰〰〰〰〰〰
+
+        const sliderData = {
+           title: "Open Days de Grados Universitarios",
+           subtitle:"Ven a conocer el Mayor Campus de las Artes en el centro de Madrid",
+           description: "",
+           callToAction: "¡Apúntate!",    
+       };
+
+    
+        // Renderiza todos los componentes
+        document.addEventListener("DOMContentLoaded", function () {
+            render(
+                html`<${slider} ...${sliderData} />`,
+                document.getElementById("preact-slider")
+            );
+        });
+    </script>
+
+    <div id="preact-slider"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

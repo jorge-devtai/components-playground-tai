@@ -1,0 +1,70 @@
+@layer layout {
+    :is(.layout-slider) {
+        font-family: "Arial", Helvetica, sans-serif;
+        display: grid;
+        place-content: center;
+        text-align: center;
+        font-size: 2.4rem;
+        line-height: 1.2;
+        block-size: 100vh;
+    }
+
+    .layout-slider::before {
+        content: "\0a0";
+        background: #000;
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .3;
+        z-index: -9;
+    }
+}
+
+@layer texts {
+    .title {
+        font-size: 2.4rem;
+        line-height: 1;
+        text-wrap: balance;
+    }
+
+    .subtitle {
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1.2;
+        margin-top:0;
+        text-wrap: balance;
+    }
+    
+   
+}
+
+@layer buttons {
+    .cta-button {
+      margin-block-start: 1.5rem;
+      margin-inline: auto;
+      display: block;
+      text-align: center;
+      width: fit-content;
+      border-radius: 35px;
+      border: 1px solid #d12216;
+      letter-spacing: 1px;
+      font-size: medium;
+      font-weight: 400;
+      text-transform: uppercase;
+      background-color: #d12216;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 23px;
+      transition: all .3s ease;
+    
+      &:hover {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #000;
+        transform: scale(1.1);
+      }
+    }
+  }
