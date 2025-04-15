@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component-Highlights</title>
+    <link rel="stylesheet" href="style-v2.css">
+</head>
+<body>
+    <article class="layout-highlights">
+        <div class="custom-grid small-box" max-column-count="1" min-column="200px">
+            <label class="box-container-highlight" for="highlight1">
+                <figure>
+                    <img src="" alt="icon number">
+                </figure>
+                <div class="box-container-highlight__info-content">   
+                    <h3>Highlight 1</h3>
+                    <span class="wrapper-description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi qui nemo perspiciatis impedit iure fugit mollitia doloremque? Unde repudiandae incidunt quasi quidem odit facilis quas quia voluptatem vel! Eveniet, quam!</p>
+                    </span>
+                </div>
+                <input type="radio" name="highlights-text" id="highlight1" checked/>
+            </label>
+            <label class="box-container-highlight" for="highlight2">
+                <div>
+                    <img src="" alt="icon number">
+                </div>
+                <div class="box-container-highlight__info-content">
+                    <h3>Highlight 2</h3>
+                    <span class="wrapper-description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi qui nemo perspiciatis impedit iure fugit mollitia doloremque? Unde repudiandae incidunt quasi quidem odit facilis quas quia voluptatem vel! Eveniet, quam!</p>
+                    </span>
+                </div>
+                <input type="radio" name="highlights-text" id="highlight2"/>
+            </label>
+            <label class="box-container-highlight" for="highlight3">
+                <div>
+                    <img src="" alt="icon number">
+                </div>
+                <div class="box-container-highlight__info-content">
+                    <h3>Highlight 3</h3>
+                    <span class="wrapper-description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi qui nemo perspiciatis impedit iure fugit mollitia doloremque? Unde repudiandae incidunt quasi quidem odit facilis quas quia voluptatem vel! Eveniet, quam!</p>
+                    </span>
+                </div>
+                <input type="radio" name="highlights-text" id="highlight3"/>
+            </label>
+            <label class="box-container-highlight" for="highlight4">
+                <div>
+                    <img src="" alt="icon number">
+                </div>
+                <div class="box-container-highlight__info-content">
+                    <h3>Highlight 4</h3>
+                    <span class="wrapper-description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi qui nemo perspiciatis impedit iure fugit mollitia doloremque? Unde repudiandae incidunt quasi quidem odit facilis quas quia voluptatem vel! Eveniet, quam!</p>
+                    </span>
+                </div>
+                <input type="radio" name="highlights-text" id="highlight4"/>
+            </label>
+        </div>
+        <div class=" pile big-box">
+            <label class="image-highlight" for="highlight1">
+                <figure class="image-container--horizontal">
+                    <img src="https://bunny-wp-pullzone-tsw4mytydl.b-cdn.net/wp-content/uploads/2023/08/DICA-desarrolla-tu-marca.jpg" alt="image highlight 1">
+                </figure>
+                <input type="radio" name="highlights-images" id="highlight1" checked/>
+            </label>
+            <label class="image-highlight" for="highlight2">
+                <figure class="image-container--horizontal">
+                    <img src="https://bunny-wp-pullzone-tsw4mytydl.b-cdn.net/wp-content/uploads/2024/06/hl-explora-universos.jpg" alt="image highlight 2">
+                </figure>
+                <input type="radio" name="highlights-images" id="highlight2"/>
+            </label>
+            <label class="image-highlight" for="highlight3">
+                <figure class="image-container--horizontal">
+                    <img src="https://bunny-wp-pullzone-tsw4mytydl.b-cdn.net/wp-content/uploads/2021/06/manim-2.jpg" alt="image highlight 3">
+                </figure>
+                <input type="radio" name="highlights-images" id="highlight3" />
+            </label>
+            <label class="image-highlight" for="highlight4">
+                <figure class="image-container--horizontal">
+                    <img src="https://bunny-wp-pullzone-tsw4mytydl.b-cdn.net/wp-content/uploads/2024/06/artes-digitales-hl-dibujo-desktop.jpg" alt="image highlight 4">
+                </figure>
+                <input type="radio" name="highlights-images" id="highlight4" />
+            </label>
+           
+        </div>
+    </article>
+
+<script>
+    // Obtener todos los radio buttons de texto e imágenes
+const textRadios = document.querySelectorAll('input[name="highlights-text"]');
+const imageRadios = document.querySelectorAll('input[name="highlights-images"]');
+
+// Función para sincronizar las selecciones
+function syncSelections() {
+    textRadios.forEach((textRadio, index) => {
+        // Escuchar cambios en los radio buttons de texto
+        textRadio.addEventListener('change', () => {
+            if (textRadio.checked) {
+                imageRadios[index].checked = true; // Sincronizar con el radio button de imágenes
+            }
+        });
+    });
+
+    imageRadios.forEach((imageRadio, index) => {
+        // Escuchar cambios en los radio buttons de imágenes
+        imageRadio.addEventListener('change', () => {
+            if (imageRadio.checked) {
+                textRadios[index].checked = true; // Sincronizar con el radio button de texto
+            }
+        });
+    });
+}
+
+// Inicializar la sincronización
+syncSelections();
+</script>
+ 
+</body>
+</html>

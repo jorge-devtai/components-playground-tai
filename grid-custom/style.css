@@ -9,10 +9,10 @@
 }
   
  
-.grid {
+.custom-grid {
   --grid-max-column-count: attr(max-column-count type(<number>), 3);
-  --grid-gap: 1rem;
   --grid-min-column: attr(min-column type(<length>), 400px);
+  --grid-gap: 1rem;
 
   --grid-column-size-calc: calc((100% - var(--grid-gap) * var(--grid-max-column-count) - var(--grid-gap)) / var(--grid-max-column-count));
 
