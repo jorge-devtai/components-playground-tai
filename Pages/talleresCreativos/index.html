@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talleres Creativos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script type="module">
+        // Importa Preact y htm desde ESM.sh
+        import { h, render } from 'https://esm.sh/preact';
+        import htm from 'https://esm.sh/htm';
+
+        // Inicializa htm con Preact
+        const html = htm.bind(h);
+
+        // Componente IntroSection
+        function IntroSection({
+        title,
+        TaiInvite: [{ date, time, location, free }], 
+        subtitle,
+        description1,
+        description2,
+        items = [], 
+        callToAction,
+        link
+    }) {
+        return html`
+            <section class="layout light-container">
+                <div class="container-wrapper__contentSize">
+                    <div class="column">
+                        <h2 class="title-header">${title}</h2>
+                        <hr class="separator-line" />
+                        <div style="display:grid; gap:.8rem">
+                            <p class="text">${date} · ${time}</p>
+                            <p class="text">${location}</p>
+                            <p class="text"><strong>${free}</strong></p>
+                        </div>
+                        
+                    </div>
+                    <div class="column">
+                        <header style="display:flex; flex-direction:column; gap:1rem; margin-block-end: 1rem">
+                            <h3 class="subtitle">${subtitle}</h3>
+                            <p class="text">${description1}</p>
+                            <p class="text">${description2}</p>
+                        </header>
+                    
+                        <ul class="list">
+                            ${items.map(
+                                (item, index) => html`<li class="list-item--dark" key=${index}>${item}</li>`
+                            )}
+                        </ul>
+                        <a href="${link}" class="cta-button" style="margin-inline:unset;">${callToAction}</a>
+                    </div>   
+                </div>
+            </section>
+        `;
+    }
+        // Datos del componente
+        const introData = {
+            title: "Vívelo por un día. Elige tu camino",
+            TaiInvite: [
+                {
+                    date: "Jueves 8 de Mayo",
+                    time: "18:00 hrs",
+                    location: "Escuela Universitaria de Artes TAI (C/ Recoletos, 22)",
+                    free: "Taller 100% gratuito",
+                }
+            ],
+            subtitle: " ¿Alguna vez te has preguntado cómo sería estudiar una carrera universitaria de interpretación, cine o música?  Entonces, los Talleres Creativos de TAI son para ti.",
+            description1: "Dirigido a preuniversitarios y estudiantes de 2º de Bachillerato.", 
+            description2:"En los talleres podrás:",
+            items: [
+                "Conocerás nuestros grados oficiales en Cine, Artes Escénicas, Música o Artes Visuales.",
+                "Podrás charlar y resolver todo tipo de dudas con quienes mejor conocen la escuela: estudiantes, antiguos/as alumnos/as y docentes.",
+                "Visita la escuela y sus instalaciones, un espacio dedicado 100% al arte.",
+                "Participarás en talleres artísticos y vivirás una verdadera experiencia de inmersión en la metodología TAI.",
+                "Recibirás una asesoría personalizada sobre los estudios que te interesan, opciones de empleabilidad, becas y financiación.",
+                "Podrás realizar la entrevista de admisión este mismo día y dar el primer paso hacia tu futuro como artista.",
+            ],
+            link: "#from",
+            callToAction: "¡Más Información!"
+        };
+
+        // Renderizado global
+        document.addEventListener("DOMContentLoaded", function () {
+            render(
+                html`
+                    <div id="intro-section-root">
+                        <${IntroSection} ...${introData} />
+                    </div>
+                `,
+                document.body
+            );
+        });
+    </script>
+</body>
+</html>
